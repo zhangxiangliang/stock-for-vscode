@@ -1,65 +1,48 @@
-# stock-for-vscode README
+# VSCode 股票小工具
 
-This is the README for your extension "stock-for-vscode". After writing up a brief description, we recommend including the following sections.
+## 简介
 
-## Features
+一款聚焦在 `股票实时数据` 和 `周边相关服务` 的 VSCode 股票小工具。
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## 配置
 
-For example if there is an image subfolder under your extension project workspace:
+### 配置说明
 
-\!\[feature X\]\(images/feature-x.png\)
+* `api` 用于设置股票监听的接口提供商，可选值 string: netease。
+* `interval` 接口刷新间隔时间(秒)，太过频繁可能导致接口被限制，可选值 number。
+* `up_color` 股票上涨颜色，可选值 string: rgb。
+* `down_color` 股票下跌颜色，可选值 string: rgb。
+* `stocks` 需要监控的股票组，可选值 Stock: { code: string, unit: number, volume: number }
+  * `code` 需要监控的股票代码，格式为交易所常量+股票代码，上交所 SH、深交所 SZ、港交所 HK、美交所 US，可选值: string。
+  * `unit` 需要监控的股票成本价格，插件会监控并计算实时收益情况，可选值: number。
+  * `unit` 需要监控的股票持仓数量，插件会监控并计算实时收益情况，可选值: number。
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### 配置示例
 
-## Requirements
+```json
+{
+  "api": "netease",
+  "interval": 10,
+  "up_color": "#ffffff",
+  "down_color": "#000000",
+  "stocks": [
+    {
+      "code": "SZ510500",
+      "unit": 5.545,
+      "volume": 1500,
+    }
+  ],
+}
+```
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### api
 
-## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
-For example:
+## 一起成长
 
-This extension contributes the following settings:
+> 韭菜小猪也有暴富梦~
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+* 在困惑的城市里总少不了并肩同行的 伙伴 让我们一起成长。
+* 如果您想让更多人看到文章可以点个 点赞。
+* 如果您想激励小二可以到 Github 给个 小星星。
