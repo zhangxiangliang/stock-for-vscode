@@ -27,7 +27,7 @@
   "down_color": "#000000",
   "stocks": [
     {
-      "code": "SZ510500",
+      "code": "SH510500",
       "unit": 5.545,
       "volume": 1500,
     }
