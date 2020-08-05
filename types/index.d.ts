@@ -1,2 +1,2 @@
-export { Command } from './command';
 export { Stock } from './stock';
+export { Command } from './command';
