@@ -10,36 +10,54 @@
 
 在用户配置中设置需要监控的数据，具体方法 `cmd + shift + p` 输入 Setting 并选择对应数据。
 
-### 配置说明
-
-
-
-* `api` 用于设置股票监听的接口提供商，默认值 sina, 可选值 string: "sina" | "netease" | "tencent" | "xueqiu"。
-* `interval` 接口刷新间隔时间(秒)，太过频繁可能导致接口被限制，默认值 10，可选值 number。
-* `up_color` 股票上涨颜色，默认值 #ffffff，可选值 string: rgb。
-* `down_color` 股票下跌颜色，默认值 #000000，可选值 string: rgb。
-* `up_percent` 上涨百分比警告，默认值 0.1，可选值 number。
-* `down_percent` 下跌百分比警告，默认值 -0.08，可选值 number。
-* `stocks` 需要监控的股票组，可选值 Stock: { code: string, unit: number, volume: number }
-  * `name` 需要监控的股票名称，可选值: string
-  * `code` 需要监控的股票代码，格式为交易所常量+股票代码，上交所 SH、深交所 SZ、港交所 HK、美交所 US，可选值: string。
-  * `unit` 需要监控的股票成本价格，插件会监控并计算实时收益情况，可选值: number。
-  * `volunm` 需要监控的股票持仓数量，插件会监控并计算实时收益情况，可选值: number。
-
 ### 配置示例
 
 ```json
 {
   "stock-for-vscode": {
+    // 用于设置股票监听的接口提供商
+    // 默认值 sina, 可选值 string: "sina" | "netease" | "tencent" | "xueqiu"
     "api": "netease",
+
+    // 接口刷新间隔时间(秒)，太过频繁可能导致接口被限制
+    // 默认值 10，可选值 number。
     "interval": 10,
+
+    // 股票上涨颜色
+    // 默认值 #ffffff，可选值 string: rgb。
     "up_color": "#ffffff",
+
+    // 股票下跌颜色
+    // 默认值 #000000，可选值 string: rgb。
     "down_color": "#000000",
+
+    // 上涨百分比警告
+    // 默认值 0.1，可选值 number。
+    "up_percent": 0.1, 
+
+    // 下跌百分比警告
+    // 默认值 0.1，可选值 number。
+    "down_percent": -0.08, 
+
+    // 需要监控的股票组
+    // 可选值 Stock: { name: string, code: string, unit: number, volume: number }
     "stocks": [
       {
+        // 需要监控的股票名称
+        // 可选值: string
         "name": "500ETF",
+
+        // 需要监控的股票代码，格式为交易所常量+股票代码
+        // 上交所 SH、深交所 SZ、港交所 HK、美交所 US
+        // 可选值: string。
         "code": "SH510500",
+
+        // 需要监控的股票成本价格，插件会监控并计算实时收益情况
+        // 可选值: number。
         "unit": 5.545,
+
+        // 需要监控的股票持仓数量，插件会监控并计算实时收益情况
+        // 可选值: number。
         "volume": 1500
       },
       {
