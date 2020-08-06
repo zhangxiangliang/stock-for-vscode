@@ -17,6 +17,10 @@
   "engines": {
     "vscode": "^1.47.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jiucaixiaozhu/stock-for-vscode.git"
+  },
   "categories": [
     "Other"
   ],
@@ -25,8 +29,7 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
+    "commands": [{
         "command": "stock-for-vscode.watch",
         "title": "🐷 韭菜小猪启动股票监听 🎉"
       },
@@ -39,8 +42,7 @@
       "properties": {
         "stock-for-vscode.stocks": {
           "type": "array",
-          "default": [
-            {
+          "default": [{
               "name": "500ETF",
               "code": "SH510500",
               "unit": 5.545,
