@@ -5,8 +5,17 @@ export interface Stock {
   // 代码
   code: string;
 
-  // 盈亏价格
-  price: number;
+  // 当前价
+  now: number;
+
+  // 最低价
+  low: number;
+
+  // 最高价
+  high: number;
+
+  // 昨收价
+  yesterday: number;
 
   // 盈亏百分比
   percent: number;

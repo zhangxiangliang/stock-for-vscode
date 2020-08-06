@@ -2,7 +2,7 @@ import Stock from "./stock";
 
 export interface VscodeConfig {
   // 数据接口
-  api: string,
+  api: "netease" | "sina" | "tencent" | "xueqiu",
 
   // 轮询时间
   interval: number,
@@ -15,6 +15,12 @@ export interface VscodeConfig {
 
   // 股票数据
   stocks: Stock[],
+
+  // 上升百分比警告
+  up_percent: 0.1,
+
+  // 下跌百分比警告
+  down_percent: -0.08,
 }
 
 export default VscodeConfig;
