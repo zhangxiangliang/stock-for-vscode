@@ -7,24 +7,22 @@ import { stocks } from 'stock-api';
 
 // Utils
 import config from '../utils/config';
+import global from '../utils/global';
 
 // Types
 import Stock from '../../types/stock';
 import Command from '../../types/command';
-
-let timer: any = null;
-let statusBars: StatusBarItem[] = [];
 
 /**
  * 股票小助手监听命令
  */
 export async function activate() {
   // 展示消息
-  vscode.window.showInformationMessage('🐷 韭菜小猪启动股票监听成功 ~');
+  vscode.window.showInformationMessage('🐷 韭菜小猪启动股票监听成功 🎉 ~');
 
   // 数据定时器
   main();
-  setInterval(() => main(), config.interval * 1000);
+  global.timer = setInterval(() => main(), config.interval * 1000);
 };
 
 /**
@@ -52,10 +50,10 @@ export async function updateStatusBar(stocks: Stock[]) {
   let totalAmount = 0;
 
   // 清除旧状态
-  statusBars.map(statusBar => statusBar.hide());
+  global.statusBars.map(statusBar => statusBar.hide());
 
   // 增加新状态
-  statusBars = stocks
+  global.statusBars = stocks
     .sort((x, y) => y.unit * y.volume - x.unit * x.volume)
     .map(stock => {
       const statusBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 3);
@@ -94,15 +92,15 @@ export async function updateStatusBar(stocks: Stock[]) {
   statusBar.text = `💰 ${totalAmount.toFixed(2)}`;
 
   // 显示新状态
-  statusBars = [statusBar, ...statusBars];
-  statusBars.map(statusBar => statusBar.show());
+  global.statusBars = [statusBar, ...global.statusBars];
+  global.statusBars.map(statusBar => statusBar.show());
 }
 
 /**
  * 股票小助手注销命令
  */
 export function deactivate() {
-  timer && clearInterval(timer);
+  global.timer && clearInterval(global.timer);
 };
 
 const commend: Command = {

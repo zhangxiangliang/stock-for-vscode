@@ -16,7 +16,10 @@
   "contributes": {
     "commands": [{
       "command": "stock-for-vscode.watch",
-      "title": "🐷 韭菜小猪启动股票监听"
+      "title": "🐷 韭菜小猪启动股票监听 🎉"
+    }, {
+      "command": "stock-for-vscode.unwatch",
+      "title": "🐷 韭菜小猪关闭股票监听 🚫"
     }],
     "configuration": {
       "properties": {
