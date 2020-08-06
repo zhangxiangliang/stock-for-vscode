@@ -1,7 +1,7 @@
 {
   "name": "stock-for-vscode",
-  "displayName": "stock-for-vscode",
-  "description": "股票实时股价 | 收益统计 | 盈亏警告 | A股 | 港股 | 美股",
+  "displayName": "韭菜小猪 - Stock for VSCode",
+  "description": "股票实时股价 | 收益统计 | 盈亏警告 | A股 | 港股 | 美股 | stock",
   "version": "0.0.4",
   "keywords": [
     "stock",
@@ -29,8 +29,7 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
+    "commands": [{
         "command": "stock-for-vscode.watch",
         "title": "🐷 韭菜小猪启动股票监听 🎉"
       },
@@ -43,8 +42,7 @@
       "properties": {
         "stock-for-vscode.stocks": {
           "type": "array",
-          "default": [
-            {
+          "default": [{
               "name": "500ETF",
               "code": "SH510500",
               "unit": 5.545,
