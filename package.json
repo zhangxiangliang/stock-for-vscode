@@ -23,7 +23,7 @@
     }],
     "configuration": {
       "properties": {
-        "stocks": {
+        "stock-for-vscode.stocks": {
           "type": "array",
           "default": [{
               "name": "500ETF",
@@ -46,34 +46,34 @@
           ],
           "description": "配置需要监控的股票代码"
         },
-        "api": {
+        "stock-for-vscode.api": {
           "description": "股票数据源",
           "type": "string",
           "default": "netease",
           "enum": ["netease", "sina", "tencent", "xueqiu"],
           "enumDescription": ["网易股票数据源", "新浪股票数据源", "腾讯股票数据源", "雪球股票数据源"]
         },
-        "up_percent": {
+        "stock-for-vscode.up_percent": {
           "type": "number",
           "default": 0.1,
           "description": "股票上涨百分比监控"
         },
-        "down_percent": {
+        "stock-for-vscode.down_percent": {
           "type": "number",
           "default": -0.08,
           "description": "股票下跌百分比监控"
         },
-        "up_color": {
+        "stock-for-vscode.up_color": {
           "type": "string",
           "default": "#ffffff",
           "description": "股票上涨颜色配置"
         },
-        "down_color": {
+        "stock-for-vscode.down_color": {
           "type": "string",
           "default": "#000000",
           "description": "股票下跌颜色配置"
         },
-        "interval": {
+        "stock-for-vscode.interval": {
           "type": "number",
           "default": 10,
           "minimum": 10,

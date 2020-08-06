@@ -34,15 +34,15 @@ export function initConfig(): VscodeConfig {
   const tool = vscode.workspace.getConfiguration();
 
   return {
-    api: tool.get('api') || 'sina',
-    stocks: initStocks(tool.get('stocks') || []),
+    api: tool.get('stock-for-vscode.api') || 'sina',
+    stocks: initStocks(tool.get('stock-for-vscode.stocks') || []),
 
-    interval: tool.get('interval') || 100,
-    up_color: tool.get('up_color') || '#ffffff',
-    down_color: tool.get('down_color') || '#000000',
+    interval: tool.get('stock-for-vscode.interval') || 100,
+    up_color: tool.get('stock-for-vscode.up_color') || '#ffffff',
+    down_color: tool.get('stock-for-vscode.down_color') || '#000000',
 
-    up_percent: tool.get('up_percent') || 0.1,
-    down_percent: tool.get('down_percent') || -0.08,
+    up_percent: tool.get('stock-for-vscode.up_percent') || 0.1,
+    down_percent: tool.get('stock-for-vscode.down_percent') || -0.08,
   };
 }
 
