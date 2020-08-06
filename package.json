@@ -1,8 +1,18 @@
 {
   "name": "stock-for-vscode",
   "displayName": "stock-for-vscode",
-  "description": "一款可以查看股价和盈亏情况的 VSCode 插件",
+  "description": "一款可以查看实时股价、盈亏情况、盈亏警告的 VSCode 插件",
   "version": "0.0.1",
+  "keywords": [
+    "stock",
+    "fund",
+    "股票",
+    "基金",
+    "韭菜小猪",
+    "涨跌监控",
+    "vscode"
+  ],
+  "icon": "images/logo.png",
   "engines": {
     "vscode": "^1.47.0"
   },
