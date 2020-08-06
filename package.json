@@ -2,7 +2,7 @@
   "name": "stock-for-vscode",
   "displayName": "stock-for-vscode",
   "description": "一款可以查看实时股价、盈亏情况、盈亏警告的 VSCode 插件",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [
     "stock",
     "fund",
@@ -25,18 +25,22 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [{
-      "command": "stock-for-vscode.watch",
-      "title": "🐷 韭菜小猪启动股票监听 🎉"
-    }, {
-      "command": "stock-for-vscode.unwatch",
-      "title": "🐷 韭菜小猪关闭股票监听 🚫"
-    }],
+    "commands": [
+      {
+        "command": "stock-for-vscode.watch",
+        "title": "🐷 韭菜小猪启动股票监听 🎉"
+      },
+      {
+        "command": "stock-for-vscode.unwatch",
+        "title": "🐷 韭菜小猪关闭股票监听 🚫"
+      }
+    ],
     "configuration": {
       "properties": {
         "stock-for-vscode.stocks": {
           "type": "array",
-          "default": [{
+          "default": [
+            {
               "name": "500ETF",
               "code": "SH510500",
               "unit": 5.545,
@@ -61,8 +65,18 @@
           "description": "股票数据源",
           "type": "string",
           "default": "netease",
-          "enum": ["netease", "sina", "tencent", "xueqiu"],
-          "enumDescription": ["网易股票数据源", "新浪股票数据源", "腾讯股票数据源", "雪球股票数据源"]
+          "enum": [
+            "netease",
+            "sina",
+            "tencent",
+            "xueqiu"
+          ],
+          "enumDescription": [
+            "网易股票数据源",
+            "新浪股票数据源",
+            "腾讯股票数据源",
+            "雪球股票数据源"
+          ]
         },
         "stock-for-vscode.up_percent": {
           "type": "number",
