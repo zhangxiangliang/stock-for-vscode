@@ -12,6 +12,7 @@
     "涨跌监控",
     "vscode"
   ],
+  "publisher": "ZHANGXIANGLIANG",
   "icon": "images/logo.png",
   "engines": {
     "vscode": "^1.47.0"
