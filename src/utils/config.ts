@@ -45,7 +45,7 @@ export function initConfig(): VscodeConfig {
     down_percent: tool.get('stock-for-vscode.down_percent') || -0.08,
   };
 }
-
+``
 /**
  * 股票小助手配置获取
  */
