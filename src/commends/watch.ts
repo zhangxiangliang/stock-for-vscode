@@ -22,6 +22,7 @@ export async function activate() {
 
   // 数据定时器
   main();
+  global.timer && clearInterval(global.timer);
   global.timer = setInterval(() => main(), config.interval * 1000);
 };
 
@@ -47,6 +48,7 @@ export async function main() {
  * 渲染状态栏
  */
 export async function updateStatusBar(stocks: Stock[]) {
+  let totalIncome = 0;
   let totalAmount = 0;
 
   // 清除旧状态
@@ -62,15 +64,18 @@ export async function updateStatusBar(stocks: Stock[]) {
       const baseData = `「${stock.name}」${stock.now.toFixed(2)} ${(stock.percent * 100).toFixed(2)}%`;
 
       // 格式化个人数据
-      const personAmount = stock.percent * stock.now * stock.volume;
+      const personNow = stock.now ? stock.now : stock.yesterday;
+      const personAmount = stock.volume * personNow;
+      const personIncome = stock.percent * stock.volume * stock.now;
       const personPercent = stock.unit > 0 ? (stock.now / stock.unit - 1) : 0;
-      const personData = (stock.volume > 0) ? `${(personPercent * 100).toFixed(2)}% ${(personAmount).toFixed(2)}` : '';
+      const personData = (stock.volume > 0) ? `${(personPercent * 100).toFixed(2)}% ${(personIncome).toFixed(2)}` : '';
 
       // 填充数据
       statusBar.color = stock.percent > 0 ? config.up_color : config.down_color;
       statusBar.text = `${baseData} ${personData}`;
 
       // 记录数据
+      totalIncome = totalIncome + personIncome
       totalAmount = totalAmount + personAmount;
 
       // 上涨警告
@@ -89,7 +94,7 @@ export async function updateStatusBar(stocks: Stock[]) {
   // 创建收益情况
   const statusBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 3);
   statusBar.color = totalAmount > 0 ? config.up_color : config.down_color;
-  statusBar.text = `💰 ${totalAmount.toFixed(2)}`;
+  statusBar.text = `😊 ${totalAmount.toFixed(2)} 💰 ${totalIncome.toFixed(2)}`;
 
   // 显示新状态
   global.statusBars = [statusBar, ...global.statusBars];

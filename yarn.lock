@@ -1358,10 +1358,10 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-stock-api@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/stock-api/-/stock-api-1.1.0.tgz#7c0474a14d225c38e1962838486acfd854c7043a"
-  integrity sha512-0lT2Su4HxS+8p8Wm7CpSkiYFNNnVYPzhXOhRv4Z1YEuZt7Tl+Yhvplipy3224fIlalQ0J4WiqWNUnkYrVTnmcA==
+stock-api@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/stock-api/-/stock-api-1.1.1.tgz#ea971a1d402e9cb24ea61af61b3813b12366cb28"
+  integrity sha512-0QWzcjHxOCc3rLaTARBcWraKR+xEDn3XcZGmVPXkLO7EU0WQpinafxvXQh3/CqHPfwoa4K0FVYWUFQoASPdGGg==
   dependencies:
     iconv-lite "^0.6.2"
     superagent "^5.3.1"
