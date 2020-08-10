@@ -26,7 +26,7 @@
 
 ### 配置示例
 
-```json
+```javascript
 {
   "stock-for-vscode": {
     // 用于设置股票监听的接口提供商
