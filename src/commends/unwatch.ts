@@ -7,10 +7,8 @@ import global from '../utils/global';
 // Types
 import Command from '../../types/command';
 
-
-
 /**
- * 股票小助手关闭监听命令
+ * 股票小助手 注册 关闭监听
  */
 export async function activate() {
   // 展示消息
@@ -21,7 +19,7 @@ export async function activate() {
 };
 
 /**
- * 股票小助手注销命令
+ * 股票小助手 注销 关闭监听
  */
 export function deactivate() { };
 

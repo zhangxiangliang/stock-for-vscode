@@ -14,7 +14,7 @@ import Stock from '../../types/stock';
 import Command from '../../types/command';
 
 /**
- * 股票小助手监听命令
+ * 股票小助手 注册 监听命令
  */
 export async function activate() {
   // 展示消息
@@ -107,7 +107,7 @@ export async function updateStatusBar(stocks: Stock[]) {
 }
 
 /**
- * 股票小助手注销命令
+ * 股票小助手 注销 监听命令
  */
 export function deactivate() {
   global.timer && clearInterval(global.timer);
