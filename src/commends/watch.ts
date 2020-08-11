@@ -111,6 +111,7 @@ export async function updateStatusBar(stocks: Stock[]) {
  */
 export function deactivate() {
   global.timer && clearInterval(global.timer);
+  global.statusBars.map(statusBar => statusBar.hide());
 };
 
 const commend: Command = {
