@@ -1,8 +1,8 @@
 // Vscode
 import * as vscode from 'vscode';
-import { StatusBarItem } from 'vscode';
 
 // Npm
+import dayjs from "dayjs";
 import { stocks } from 'stock-api';
 
 // Utils
@@ -75,7 +75,7 @@ export async function updateStatusBar(stocks: Stock[]) {
       statusBar.text = `${baseData} ${personData}`;
 
       // 记录数据
-      totalIncome = totalIncome + personIncome
+      totalIncome = totalIncome + personIncome;
       totalAmount = totalAmount + personAmount;
 
       // 上涨警告
@@ -91,13 +91,18 @@ export async function updateStatusBar(stocks: Stock[]) {
       return statusBar;
     });
 
+  // 创建更新时间
+  const timeBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 3);
+  timeBar.color = totalAmount > 0 ? config.up_color : config.down_color;
+  timeBar.text = `⏰ ${dayjs().format('HH:mm:ss')}`;
+
   // 创建收益情况
   const statusBar = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 3);
   statusBar.color = totalAmount > 0 ? config.up_color : config.down_color;
   statusBar.text = `😊 ${totalAmount.toFixed(2)} 💰 ${totalIncome.toFixed(2)}`;
 
   // 显示新状态
-  global.statusBars = [statusBar, ...global.statusBars];
+  global.statusBars = [timeBar, statusBar, ...global.statusBars];
   global.statusBars.map(statusBar => statusBar.show());
 }
 
