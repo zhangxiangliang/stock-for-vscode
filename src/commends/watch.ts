@@ -66,7 +66,7 @@ export async function updateStatusBar(stocks: Stock[]) {
       // 格式化个人数据
       const personNow = stock.now ? stock.now : stock.yesterday;
       const personAmount = stock.volume * personNow;
-      const personIncome = stock.percent * stock.volume * stock.now;
+      const personIncome = stock.percent * stock.volume * stock.unit;
       const personPercent = stock.unit > 0 ? (stock.now / stock.unit - 1) : 0;
       const personData = (stock.volume > 0) ? `${(personPercent * 100).toFixed(2)}% ${(personIncome).toFixed(2)}` : '';
 
