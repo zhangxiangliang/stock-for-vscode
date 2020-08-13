@@ -29,7 +29,7 @@ export function initStocks(stocks: any[]): Stock[] {
 /**
  * 股票小助手配置加载
  */
-export function initConfig(): VscodeConfig {
+export function getConfig(): VscodeConfig {
   // 获取股票小助手配置
   const tool = vscode.workspace.getConfiguration();
 
@@ -49,6 +49,6 @@ export function initConfig(): VscodeConfig {
 /**
  * 股票小助手配置获取
  */
-const config: VscodeConfig = initConfig();
+const config: VscodeConfig = getConfig();
 
 export default config;

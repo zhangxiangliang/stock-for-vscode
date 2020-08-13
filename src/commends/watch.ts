@@ -6,8 +6,8 @@ import dayjs from "dayjs";
 import { stocks } from 'stock-api';
 
 // Utils
-import config from '../utils/config';
 import global from '../utils/global';
+import { getConfig } from '../utils/config';
 
 // Types
 import Stock from '../../types/stock';
@@ -22,14 +22,15 @@ export async function activate() {
 
   // 数据定时器
   main();
-  global.timer && clearInterval(global.timer);
-  global.timer = setInterval(() => main(), config.interval * 1000);
 };
 
 /**
  * 渲染股票数据
  */
 export async function main() {
+  // 读取配置
+  const config = getConfig();
+
   // 读取配置数据
   const codes = config.stocks.map(stock => stock.code);
 
@@ -42,6 +43,9 @@ export async function main() {
 
     return { ...stock, ...item };
   }));
+
+  global.timer && clearTimeout(global.timer);
+  global.timer = setTimeout(() => main(), config.interval * 1000);
 }
 
 /**
@@ -50,6 +54,9 @@ export async function main() {
 export async function updateStatusBar(stocks: Stock[]) {
   let totalIncome = 0;
   let totalAmount = 0;
+
+  // 读取配置
+  const config = getConfig();
 
   // 清除旧状态
   global.statusBars.map(statusBar => statusBar.hide());

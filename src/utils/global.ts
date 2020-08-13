@@ -7,4 +7,4 @@ let statusBars: StatusBarItem[] = [];
 export default {
   timer,
   statusBars,
-}
+};
