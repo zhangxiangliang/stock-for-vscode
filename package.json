@@ -2,7 +2,7 @@
   "name": "stock-for-vscode",
   "displayName": "韭菜小猪 - Stock for VSCode",
   "description": "股票实时股价 | 收益统计 | 盈亏警告 | A股 | 港股 | 美股 | stock",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "keywords": [
     "stock",
     "fund",
