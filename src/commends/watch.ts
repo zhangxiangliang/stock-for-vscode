@@ -6,8 +6,8 @@ import dayjs from "dayjs";
 import { stocks } from 'stock-api';
 
 // Utils
-import config from '../utils/config';
 import global from '../utils/global';
+import { getConfig } from '../utils/config';
 
 // Types
 import Stock from '../../types/stock';
@@ -22,14 +22,15 @@ export async function activate() {
 
   // 数据定时器
   main();
-  global.timer && clearInterval(global.timer);
-  global.timer = setInterval(() => main(), config.interval * 1000);
 };
 
 /**
  * 渲染股票数据
  */
 export async function main() {
+  // 读取配置
+  const config = getConfig();
+
   // 读取配置数据
   const codes = config.stocks.map(stock => stock.code);
 
@@ -42,6 +43,9 @@ export async function main() {
 
     return { ...stock, ...item };
   }));
+
+  global.timer && clearTimeout(global.timer);
+  global.timer = setTimeout(() => main(), config.interval * 1000);
 }
 
 /**
@@ -50,6 +54,9 @@ export async function main() {
 export async function updateStatusBar(stocks: Stock[]) {
   let totalIncome = 0;
   let totalAmount = 0;
+
+  // 读取配置
+  const config = getConfig();
 
   // 清除旧状态
   global.statusBars.map(statusBar => statusBar.hide());
@@ -66,7 +73,7 @@ export async function updateStatusBar(stocks: Stock[]) {
       // 格式化个人数据
       const personNow = stock.now ? stock.now : stock.yesterday;
       const personAmount = stock.volume * personNow;
-      const personIncome = stock.percent * stock.volume * stock.unit;
+      const personIncome = stock.percent * stock.volume * stock.yesterday;
       const personPercent = stock.unit > 0 ? (stock.now / stock.unit - 1) : 0;
       const personData = (stock.volume > 0) ? `${(personPercent * 100).toFixed(2)}% ${(personIncome).toFixed(2)}` : '';
 
