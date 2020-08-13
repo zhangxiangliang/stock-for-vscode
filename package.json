@@ -117,7 +117,8 @@
     "compile": "tsc -p ./",
     "lint": "eslint src --ext ts",
     "watch": "tsc -watch -p ./",
-    "pretest": "yarn run compile && yarn run lint"
+    "version": "git add -A ./",
+    "postversion": "git push && git push --tags"
   },
   "devDependencies": {
     "@types/glob": "^7.1.1",
